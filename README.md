@@ -53,30 +53,30 @@ To be filled in.
 Other Resources
 ---------------
 
- - <https://github.com/KhaosT/CBPeripheralManager-Demo>
+- <https://github.com/KhaosT/CBPeripheralManager-Demo>
 
 The code only works for readValue and writeValue, but not seemingly for subscribe.
 
- - <https://github.com/timburks/iOSHealthThermometer>
- - <https://github.com/timburks/CBSample>
+- <https://github.com/timburks/iOSHealthThermometer>
+- <https://github.com/timburks/CBSample>
 
 Sample Code:
 
- - <http://lists.apple.com/archives/bluetooth-dev/2012/Sep/msg00084.html>
+- <http://lists.apple.com/archives/bluetooth-dev/2012/Sep/msg00084.html>
 
 
 Sources of Discussion
 ~~~~~~~~~~~~~~~~~~~~~
 
- - <https://devforums.apple.com/community/ios/core/cbt>
- - <https://lists.apple.com/archives/bluetooth-dev/2012>
- - <http://www.bluetooth.org/Technical/Specifications/adopted.htm>
+- <https://devforums.apple.com/community/ios/core/cbt>
+- <https://lists.apple.com/archives/bluetooth-dev/2012>
+- <http://www.bluetooth.org/Technical/Specifications/adopted.htm>
 
 Important Threads
 ~~~~~~~~~~~~~~~~~
 
 Rebooting phone fixes not-notifying on subscribable properties.
- - <https://devforums.apple.com/message/736002#736002>
+- <https://devforums.apple.com/message/736002#736002>
 
 
 
