@@ -10,7 +10,7 @@
 // a Bluetooth Peripheral (Server) that contains one primary |service|.
 //
 // The service has one subscribable/notifable |characteristic| that is
-// referenced by UUID kAuthCodeBluetoothCodeRequestCharacteristicUUID.
+// referenced by UUID "c0de".
 //
 // Any Bluetooth 4.0 LE Central (aka. Client) that subscribes to this peripheral
 // will cause a delegate message to be sent. This in turn will allow the

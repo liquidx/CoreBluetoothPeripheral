@@ -27,7 +27,7 @@
     return NO;
   }
 
-  // TODO(altse): Make a check to see if the CBPeripheralManager is in unsupported state.
+  // TODO: Make a check to see if the CBPeripheralManager is in unsupported state.
   return YES;
 }
 
@@ -113,7 +113,7 @@
 
 - (void)sendToSubscribers:(NSData *)data {
   if (self.peripheral.state != CBPeripheralManagerStatePoweredOn) {
-    LXCBLog(@"sendAuthCodeToSubscribers: peripheral not ready for sending state: %d", self.peripheral.state);
+    LXCBLog(@"sendToSubscribers: peripheral not ready for sending state: %d", self.peripheral.state);
     return;
   }
 
@@ -178,7 +178,7 @@
     case CBPeripheralManagerStateUnsupported: {
       NSLog(@"peripheralStateChange: Unsupported");
       self.serviceRequiresRegistration = YES;
-      // TODO(altse): Give user feedback that Bluetooth is not supported.
+      // TODO: Give user feedback that Bluetooth is not supported.
       break;
     }
     case CBPeripheralManagerStateUnknown:
