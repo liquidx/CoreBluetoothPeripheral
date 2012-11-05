@@ -61,7 +61,10 @@ static const NSTimeInterval kLXCBRequestTimeout = 20.0;
   LXCBLog(@"Scanning ...");
   [self startScanningTimeoutMonitor];
 
-  // TODO(altse): Toggle this on and off to see what the difference is.
+  // By turning on allow duplicates, it allows us to scan more reliably, but
+  // if it finds a peripheral that does not have the services we like or
+  // recognize, we'll continually see it again and again in the didDiscover
+  // callback.
   NSDictionary *scanningOptions =
       @{ CBCentralManagerScanOptionAllowDuplicatesKey : @YES };
 
