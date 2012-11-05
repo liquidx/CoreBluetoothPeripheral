@@ -22,6 +22,10 @@
   self.textView.font = [NSFont fontWithName:@"Monaco" size:12];
 }
 
+- (void)applicationWillTerminate:(NSNotification *)notification {
+  [self.central disconnect];
+}
+
 - (void)appendLogMessage:(NSString *)message {
   self.textView.string = [self.textView.string stringByAppendingFormat:@"%@\n", message];
   [self.textView performSelector:@selector(scrollPageDown:) withObject:nil afterDelay:0];
