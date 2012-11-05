@@ -367,7 +367,6 @@ didDisconnectPeripheral:(CBPeripheral *)peripheral
 
     if ([self.serviceUUIDs containsObject:service.UUID]) {
       self.connectedService = service;
-      [self discoverServiceCharacteristics:service];
     }
   }
   [self.delegate centralClientDidConnect:self];
@@ -383,6 +382,7 @@ didDisconnectPeripheral:(CBPeripheral *)peripheral
   }
 
   // For logging, just print out all the discovered services.
+  LXCBLog(@"didDiscoverChar: Found %ld characteristic(s)", service.characteristics.count);
   for (CBCharacteristic *characteristic in service.characteristics) {
     LXCBLog(@"didDiscoverChar:  Characteristic: %@", characteristic.UUID);
   }
