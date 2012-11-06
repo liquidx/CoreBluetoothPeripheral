@@ -11,9 +11,7 @@
 
 @implementation LXCBAppDelegate
 
-- (BOOL)application:(UIApplication *)application
-        didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
+- (void)attachUserInterface {
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   self.window.backgroundColor = [UIColor whiteColor];
 
@@ -21,6 +19,20 @@
   self.window.rootViewController = self.viewController;
 
   [self.window makeKeyAndVisible];
+
+}
+
+
+- (BOOL)application:(UIApplication *)application
+        didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  // If the application is in the background state, then we have been
+  // woken up because of a bluetooth event. Otherwise, we can initialize the
+  // UI.
+  NSLog(@"didFinishedLaunching: %@", launchOptions);
+  if (application.applicationState != UIApplicationStateBackground) {
+    [self attachUserInterface];
+  }
+
 
   self.peripheral = [[LXCBPeripheralServer alloc] initWithDelegate:self];
   self.peripheral.serviceName = @"Test";
@@ -39,6 +51,9 @@
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
+  if (!self.window) {
+    [self attachUserInterface];
+  }
   [self.peripheral applicationWillEnterForeground];
 }
 
