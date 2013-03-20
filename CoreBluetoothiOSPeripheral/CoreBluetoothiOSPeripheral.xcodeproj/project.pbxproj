@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6463071716F94ECE004FD777 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6463071516F94ECE004FD777 /* Icon.png */; };
+		6463071816F94ECE004FD777 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6463071616F94ECE004FD777 /* Icon@2x.png */; };
 		64ED9AAE164754A900F39EAE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64ED9AAD164754A900F39EAE /* UIKit.framework */; };
 		64ED9AB0164754A900F39EAE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64ED9AAF164754A900F39EAE /* Foundation.framework */; };
 		64ED9AB2164754A900F39EAE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64ED9AB1164754A900F39EAE /* CoreGraphics.framework */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6463071516F94ECE004FD777 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		6463071616F94ECE004FD777 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		64ED9AA9164754A900F39EAE /* CoreBluetoothiOSPeripheral.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreBluetoothiOSPeripheral.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64ED9AAD164754A900F39EAE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		64ED9AAF164754A900F39EAE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -102,6 +106,8 @@
 		64ED9AB4164754A900F39EAE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6463071516F94ECE004FD777 /* Icon.png */,
+				6463071616F94ECE004FD777 /* Icon@2x.png */,
 				64ED9AB5164754A900F39EAE /* CoreBluetoothiOSPeripheral-Info.plist */,
 				64ED9AB6164754A900F39EAE /* InfoPlist.strings */,
 				64ED9AB9164754A900F39EAE /* main.m */,
@@ -168,6 +174,8 @@
 				64ED9AC0164754A900F39EAE /* Default.png in Resources */,
 				64ED9AC2164754A900F39EAE /* Default@2x.png in Resources */,
 				64ED9AC4164754A900F39EAE /* Default-568h@2x.png in Resources */,
+				6463071716F94ECE004FD777 /* Icon.png in Resources */,
+				6463071816F94ECE004FD777 /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +297,7 @@
 				64ED9AC9164754A900F39EAE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
