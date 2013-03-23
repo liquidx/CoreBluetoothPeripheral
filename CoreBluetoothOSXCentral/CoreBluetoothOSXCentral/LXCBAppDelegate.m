@@ -13,8 +13,21 @@
   // Set up Bluetooth Central implementation
   self.central = [[LXCBCentralClient alloc] initWithDelegate:self];
   self.central.serviceName = @"Test";
-  self.central.serviceUUIDs = @[
-      [CBUUID UUIDWithString:@"7e57"]];
+
+  // Playing around with attempting to connect to a Fitbit One. While I
+  // can scan it, odd things happen. For instance, there is a service UUID (1)
+  // that it advertises, but when you connect to the peripheral, that service
+  // UUID disappears and another set appears.
+  NSArray *fitBitOneServiceUUIDs = @[
+    [CBUUID UUIDWithString:@"ba5689a6-fabf-a2bd-0146-7d6ed16babad"], // (1) unavailable after scanning.
+    [CBUUID UUIDWithString:@"adab6bd1-6e7d-4601-bda2-bffaa68956ba"], // (2) no characteristics
+    [CBUUID UUIDWithString:@"180a"],  // (3) no characteristics.
+  ];
+
+  // CoreBluetoothiOSPeripheral service UUIDs.
+  NSArray *coreBluetoothiOSPeripheralServiceUUIDs = @[[CBUUID UUIDWithString:@"7e57"]];
+
+  self.central.serviceUUIDs = fitBitOneServiceUUIDs;
   self.central.characteristicUUIDs = @[
       [CBUUID UUIDWithString:@"b71e"]];
 

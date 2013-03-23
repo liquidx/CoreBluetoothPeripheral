@@ -116,6 +116,11 @@ static const NSTimeInterval kLXCBRequestTimeout = 20.0;
 
 // Once connected, subscribes to all the charactersitics that are subscribe-able.
 - (void)subscribe {
+  if (!self.connectedService) {
+    NSLog(@"No connected services for peripheralat all. Unable to subscribe");
+    return;
+  }
+
   if (self.connectedService.characteristics.count < 1) {
     self.subscribeWhenCharacteristicsFound = YES;
     [self discoverServiceCharacteristics:self.connectedService];
@@ -156,7 +161,7 @@ static const NSTimeInterval kLXCBRequestTimeout = 20.0;
   // If you specify nil in the list of services and the application is in the
   // background, it may sometimes only discover the Generic Access Profile
   // and the Generic Attribute Profile services.
-  // [peripheral discoverServices:nil];
+  //[peripheral discoverServices:nil];
 
   [peripheral discoverServices:self.serviceUUIDs];
 }
@@ -266,13 +271,15 @@ static const NSTimeInterval kLXCBRequestTimeout = 20.0;
      advertisementData:(NSDictionary *)advertisementData
                   RSSI:(NSNumber *)RSSI {
 
-  LXCBLog(@"didDiscoverPeripheral: Peripheral: %@", peripheral.UUID);
+  CBUUID *peripheralUUID = [CBUUID UUIDWithCFUUID:peripheral.UUID];
+  LXCBLog(@"didDiscoverPeripheral: Peripheral CFUUID: %@", peripheral.UUID);
+  LXCBLog(@"didDiscoverPeripheral: Peripheral CBUUID: %@", peripheralUUID);
   LXCBLog(@"didDiscoverPeripheral: Name: %@", peripheral.name);
   LXCBLog(@"didDiscoverPeripheral: Advertisment Data: %@", advertisementData);
   LXCBLog(@"didDiscoverPeripheral: RSSI: %@", RSSI);
 
   BOOL foundSuitablePeripheral = NO;
-  CBUUID *peripheralUUID = [CBUUID UUIDWithCFUUID:peripheral.UUID];
+
 
   // Figure out whether this device has the right service.
   if (!foundSuitablePeripheral) {
@@ -394,6 +401,12 @@ didDisconnectPeripheral:(CBPeripheral *)peripheral
   // CBService instance, so there's no need to do anything more here
   // apart from remembering the service, in case it changed.
   self.connectedService = service;
+
+  if (service.characteristics.count < 1) {
+    NSLog(@"didDiscoverChar: did not discover any characterestics for service. aborting.");
+    [self disconnect];
+    return;
+  }
 
   if (self.subscribeWhenCharacteristicsFound) {
     [self subscribe];
